@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f5f7">
+    <title>ParkHub - Tu espacio, a tu tiempo</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/parking.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="#inicio" aria-label="ParkHub, ir al inicio">
+          <span class="brand-mark" aria-hidden="true">P</span>
+          <span>ParkHub</span>
+        </a>
+        <nav aria-label="Navegación principal">
+          <a href="#espacios">Espacios</a>
+          <a href="#reservaciones">Reservaciones</a>
+        </nav>
+      </header>
+
+      <main id="inicio">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-content">
+            <span class="eyebrow">ESTACIONAR ES MÁS SIMPLE</span>
+            <h1 id="hero-title">Tu espacio.<br><span>A tu tiempo.</span></h1>
+            <p>Encuentra un lugar, revisa sus horarios y reserva en unos pasos.</p>
+            <a class="button button-primary hero-link" href="#espacios">Explorar espacios</a>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="visual-road"><span></span><span></span><span></span></div>
+            <div class="visual-card visual-card-back"><span class="visual-chip">B</span><strong>B02</strong><small>Zona B</small></div>
+            <div class="visual-card visual-card-front"><span class="visual-chip">A</span><strong>A03</strong><small>Tu próximo espacio</small><i></i></div>
+          </div>
+        </section>
+
+        <section id="espacios" class="section spaces-section" aria-labelledby="spots-title">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">ENCUENTRA TU LUGAR</span>
+              <h2 id="spots-title">Espacios</h2>
+              <p>Selecciona uno para ver sus horarios y reservar.</p>
+            </div>
+            <button id="refresh-button" class="button button-secondary" type="button">Actualizar</button>
+          </div>
+          <p id="spots-message" class="message" role="status">Cargando espacios...</p>
+          <div id="spots-list" class="spots-grid"></div>
+        </section>
+
+        <section class="section booking-section" aria-labelledby="booking-title">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">ORGANIZA TU VISITA</span>
+              <h2 id="booking-title">Elige tu horario</h2>
+              <p>Consulta la agenda del espacio antes de confirmar.</p>
+            </div>
+          </div>
+          <div class="booking-grid">
+            <div class="panel agenda-panel">
+              <div class="panel-head">
+                <div>
+                  <h3>Agenda del día</h3>
+                  <p id="agenda-spot-name">Selecciona un espacio</p>
+                </div>
+                <label class="date-control" for="agenda-date">Fecha
+                  <input id="agenda-date" type="date">
+                </label>
+              </div>
+              <div class="agenda-legend"><span><i class="legend-free"></i>Libre</span><span><i class="legend-busy"></i>Ocupado</span></div>
+              <p id="agenda-message" class="message" role="status"></p>
+              <div id="agenda-timeline" class="agenda-timeline" aria-label="Horarios ocupados del día"></div>
+            </div>
+
+            <div class="panel form-panel">
+              <div class="panel-head"><div><h3>Nueva reservación</h3><p>Completa los datos para apartar tu lugar.</p></div></div>
+              <form id="reservation-form">
+                <div class="field">
+                  <label for="parking-spot">Espacio</label>
+                  <select id="parking-spot" name="parkingSpotId" required></select>
+                </div>
+                <div class="field">
+                  <label for="start-time">Inicio</label>
+                  <input id="start-time" name="startTime" type="datetime-local" required>
+                </div>
+                <div class="field">
+                  <label for="end-time">Fin</label>
+                  <input id="end-time" name="endTime" type="datetime-local" required>
+                </div>
+                <p id="form-error" class="field-error" role="alert"></p>
+                <button id="reserve-button" class="button button-primary button-full" type="submit">Confirmar reservación</button>
+              </form>
+              <p id="reservation-message" class="message" role="status"></p>
+              <p class="form-note">La disponibilidad se confirma al reservar.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="reservaciones" class="section reservations-section" aria-labelledby="reservations-title">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">TODO EN ORDEN</span>
+              <h2 id="reservations-title">Reservaciones</h2>
+              <p>Consulta tus horarios y administra tus reservaciones.</p>
+            </div>
+          </div>
+          <p id="reservations-message" class="message" role="status"></p>
+          <div id="reservations-list" class="reservations-list"></div>
+        </section>
+      </main>
+
+      <footer class="site-footer"><span>ParkHub</span><span>Un lugar para cada plan.</span></footer>
+    </div>
+  </body>
+</html>
